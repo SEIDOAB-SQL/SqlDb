@@ -1,0 +1,86 @@
+[
+  {
+    "FriendId": "765D256F-DC9E-423E-A319-F0589C9C7730",
+    "FirstName": "Draco",
+    "LastName": "Snape",
+    "Country": "Finland",
+    "Pet": "Leo the happy Bird"
+  },
+  {
+    "FriendId": "98651479-9A50-453E-94C5-841E269F5355",
+    "FirstName": "Sam",
+    "LastName": "Baggins",
+    "Country": "Denmark",
+    "Pet": "Cooper the happy Cat"
+  },
+  {
+    "FriendId": "765D256F-DC9E-423E-A319-F0589C9C7730",
+    "FirstName": "Draco",
+    "LastName": "Snape",
+    "Country": "Finland",
+    "Pet": "Teddy the happy Fish"
+  },
+  {
+    "FriendId": "5344283E-9A12-4991-821D-ED8EE8AD3EEE",
+    "FirstName": "Neville",
+    "LastName": "Longbottom",
+    "Country": "Sweden",
+    "Pet": "Whisker the happy Cat"
+  },
+  {
+    "FriendId": "C307CE98-5DDD-4FD6-9724-5B94A92C2E50",
+    "FirstName": "Albus",
+    "LastName": "Potter",
+    "Country": "Denmark",
+    "Pet": "Milo the happy Dog"
+  },
+  {
+    "FriendId": "4A8C4890-A5EF-46B1-BDBC-6B83486FAF2F",
+    "FirstName": "Luna",
+    "LastName": "Weasley",
+    "Country": "Sweden",
+    "Pet": "Coco the happy Rabbit"
+  },
+  {
+    "FriendId": "BAB6508C-2BD3-43A0-949D-2B73FFBCB0EA",
+    "FirstName": "Harry",
+    "LastName": "Took",
+    "Country": "Sweden",
+    "Pet": "Charlie the happy Cat"
+  },
+  {
+    "FriendId": "5344283E-9A12-4991-821D-ED8EE8AD3EEE",
+    "FirstName": "Neville",
+    "LastName": "Longbottom",
+    "Country": "Sweden",
+    "Pet": "Splash the happy Fish"
+  },
+  {
+    "FriendId": "AED19D78-E737-40B4-AD6B-F9B8D5F1550B",
+    "FirstName": "Ron",
+    "LastName": "Skywalker",
+    "Country": "Denmark",
+    "Pet": "Pebble the happy Rabbit"
+  },
+  {
+    "FriendId": "4A8C4890-A5EF-46B1-BDBC-6B83486FAF2F",
+    "FirstName": "Luna",
+    "LastName": "Weasley",
+    "Country": "Sweden",
+    "Pet": "Biscuit the happy Dog"
+  },
+  {
+    "FriendId": "DEC57FD1-D797-49B0-8D17-7EE7BB07CC22",
+    "FirstName": "Ginny",
+    "LastName": "Lovegood",
+    "Country": "Norway",
+    "Pet": "Bubble the happy Fish"
+  },
+  {
+    "FriendId": "700BDD66-71C0-4548-A092-00082602A3E4",
+    "FirstName": "Lord",
+    "LastName": "Dumbledore",
+    "Country": "Sweden",
+    "Pet": "Simba the happy Dog"
+  }
+]
