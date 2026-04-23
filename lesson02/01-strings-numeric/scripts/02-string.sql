@@ -13,20 +13,20 @@ SELECT NCHAR(0x20A9) AS wong, NCHAR(0x20AB) AS dong, NCHAR(0x20B9) AS rupee, NCH
 --Use some string functions
 DECLARE @myString AS NVARCHAR(100) = N'₪₪₪₪₪₪₪₪₪₪';
 
-SELECT N'List of Shekel signs: ' + @myString;
-SELECT @myString = CONCAT (N'So is this: ', @myString);
+SELECT 'List of Shekel signs: ' + @myString;
+SELECT @myString = CONCAT ('So is this: ', @myString);
 
 SELECT @myString as string, LEN(@myString) nr_char, DATALENGTH(@myString) nr_bytes;
 
 SELECT  CHARINDEX(':', @myString) AS charindex, 
-        SUBSTRING (@myString, 1, CHARINDEX(N':', @myString)) AS substring, 
+        SUBSTRING (@myString, 1, CHARINDEX(':', @myString)) AS substring, 
         REPLACE(@myString, N'₪₪₪₪₪₪₪₪₪₪', N'₱₱₱₱₱') AS replace,
-        STUFF (@myString, 1, CHARINDEX(N':', @myString), N'Some sekels:') As stuff
+        STUFF (@myString, 1, CHARINDEX(':', @myString), N'Some sekels:') As stuff
 
 --Use string functions on a table
-SELECT Name + N' the happy ' + AnimalKind FROM dbo.Pet;
+SELECT Name + ' the happy ' + AnimalKind FROM dbo.Pet;
 
-SELECT CONCAT_WS(N' ', Name, N'the mischievous', AnimalKind, N'is owned by', OwnerId) FROM dbo.Pet;
+SELECT CONCAT_WS(' ', Name, 'the mischievous', AnimalKind, 'is owned by', OwnerId) FROM dbo.Pet;
 
 
 
