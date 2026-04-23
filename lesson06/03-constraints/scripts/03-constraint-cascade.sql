@@ -14,7 +14,13 @@ SELECT * FROM Pet WHERE OwnerId = @Friend;
 SELECT * FROM FriendQuote WHERE FriendId = @Friend;
 
 --Let's remove a friend in the table Friend
---Note that SQL Server will not allow us to delete the friend because there are related records in the Pet 
---as well as there are related records in the FriendQuote table
+--Now it will work
 DELETE dbo.Friend
 WHERE FriendId = @Friend;
+
+--Note that the Friend is deleted as well as the pets and quotes related to that friend. 
+--This is because of the ON DELETE CASCADE constraint defined on the foreign keys in the Pet and FriendQuote tables.
+SELECT * FROM dbo.Friend WHERE FriendId = @Friend;
+SELECT * FROM dbo.Pet WHERE OwnerId = @Friend;
+SELECT * FROM dbo.FriendQuote WHERE FriendId = @Friend;
+

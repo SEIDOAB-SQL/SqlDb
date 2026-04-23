@@ -1,7 +1,7 @@
 USE friends;
 GO
 
--- ALTER FK_Pet_Friend to SET NULL on delete
+-- ALTER FK_Pet_Friend to CASCADE on delete
 -- SQL Server does not support ALTER CONSTRAINT, so drop and re-add it
 
 ALTER TABLE [dbo].[Pet]
@@ -12,7 +12,7 @@ ALTER TABLE [dbo].[Pet]
     ADD CONSTRAINT [FK_Pet_Friend]
     FOREIGN KEY ([OwnerId])
     REFERENCES [dbo].[Friend] ([FriendId])
-    ON DELETE SET NULL;
+    ON DELETE CASCADE;
 GO
 
 -- ALTER FK_FriendQuote_Friend to CASCADE on delete
