@@ -6,24 +6,24 @@ GO
 -- Using / in column aliases creates nested XML elements in FOR XML PATH:
 --   "Address/Country" nests <Country> inside <Address>
 --   "Pet/Name" nests the value inside <Pet>
-SELECT f.FriendId "FriendId", f.FirstName "FirstName", f.LastName "LastName", 
-    a.Country "Country", a.City "City",
-    CONCAT_WS(' ', p.Name, 'the happy', p.AnimalKind) "Name"
+SELECT f.FriendId AS "Id", f.FirstName AS "FName", f.LastName AS "LName", 
+    a.Country AS "Country", a.City AS "City",
+    CONCAT_WS(' ', p.Name, 'the happy', p.AnimalKind) AS "Name"
 FROM dbo.friend f
 INNER JOIN dbo.Address a
 ON f.AddressId = a.AddressId
 INNER JOIN dbo.Pet p
 ON f.FriendId = p.OwnerId
-FOR XML PATH('Friend')
+FOR XML PATH('MyPal')
 
 
 --Get full detail of a friend in XML
 -- Using / in column aliases creates nested XML elements in FOR XML PATH:
 --   "Address/Country" nests <Country> inside <Address>
 --   "Pet/Name" nests the value inside <Pet>
-SELECT f.FriendId "@FriendId", f.FirstName "FirstName", f.LastName "LastName", 
+SELECT f.FriendId "@Id", CONCAT_WS (' ', f.FirstName, f.LastName) "@Name", 
     a.Country "Address/Country", a.City "Address/City",
-    CONCAT_WS(' ', p.Name, 'the happy', p.AnimalKind) "Pet/Name"
+    CONCAT_WS(' ', p.Name, 'the happy', p.AnimalKind) "Pet/@Name"
 FROM dbo.friend f
 INNER JOIN dbo.Address a
 ON f.AddressId = a.AddressId
