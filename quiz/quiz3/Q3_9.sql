@@ -2,7 +2,7 @@ USE sakila;
 GO
 
 
-SELECT co.country, s.staff_id, YEAR(rental_date) AS [Year], DATEPART(month, rental_date) AS [Month], 
+SELECT co.country, YEAR(rental_date) AS [Year], DATEPART(month, rental_date) AS [Month], 
     COUNT(*) AS NrRentals, 
     SUM (p.amount) AS RentalAmount
 
@@ -15,5 +15,6 @@ INNER JOIN dbo.city c ON a.city_id = c.city_id
 INNER JOIN dbo.country co ON c.country_id = co.country_id
 
 
-GROUP BY co.country, s.staff_id, YEAR(rental_date), DATEPART(month, rental_date) --WITH ROLLUP
-ORDER BY 1,2,3,4;
+GROUP BY co.country, YEAR(rental_date), DATEPART(month, rental_date) WITH ROLLUP
+ORDER BY 1,2,3;
+    
