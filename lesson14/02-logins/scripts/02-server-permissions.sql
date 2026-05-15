@@ -22,7 +22,9 @@ ALTER SERVER ROLE ServerViewOnly ADD MEMBER Frodo;
 
 
 --close the duplicate workspace where you are logged in as Frodo and run the below script in the admin workspace to clean up the login and server role we just created for the demo
---House cleaning
+
+-- House cleaning
+-- Remove Frodo from the role only if they are a member, then drop the role and login
 IF EXISTS (SELECT 1 FROM sys.server_principals WHERE name = N'ServerViewOnly' AND type = 'R')
 BEGIN
     -- Remove Frodo from the role only if they are a member
@@ -35,5 +37,6 @@ BEGIN
 
     DROP SERVER ROLE ServerViewOnly;
 END
+-- Drop the login if it exists
 IF SUSER_ID (N'Frodo') IS NOT NULL
     DROP LOGIN Frodo;
