@@ -50,3 +50,34 @@ SELECT FirstName,
 FROM j_artists_rock_albums
 GROUP BY FirstName, LastName
 ORDER BY TotalCopiesSold DESC;
+
+-- ============================================================
+
+-- Exercise 3: CTE Pagination (Sakila database)
+USE sakila;
+GO
+
+DECLARE @PageNumber INT  = 3;
+DECLARE @PageSize   INT  = 10;
+
+;WITH films_paged AS
+    (SELECT film_id,
+            title,
+            rating,
+            rental_rate,
+            length,
+            ROW_NUMBER() OVER (ORDER BY title ASC) AS rn,
+            COUNT(*) OVER ()                        AS total_rows
+     FROM film)
+
+SELECT rn                                                        AS row_num,
+       film_id,
+       title,
+       rating,
+       rental_rate,
+       length,
+       CEILING(CAST(total_rows AS FLOAT) / @PageSize)           AS total_pages
+FROM films_paged
+WHERE rn BETWEEN (@PageNumber - 1) * @PageSize + 1
+              AND  @PageNumber      * @PageSize
+ORDER BY rn;
