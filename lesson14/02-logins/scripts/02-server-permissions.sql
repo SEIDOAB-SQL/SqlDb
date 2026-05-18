@@ -21,7 +21,8 @@ ALTER SERVER ROLE ServerViewOnly ADD MEMBER Frodo;
 -- Frodo doesn't have permissions to modify any database
 
 
---close the duplicate workspace where you are logged in as Frodo and run the below script in the admin workspace to clean up the login and server role we just created for the demo
+--close the duplicate workspace where you are logged in as Frodo and run the below script in the admin workspace 
+--to clean up the login and server role we just created for the demo
 
 -- House cleaning
 -- Remove Frodo from the role only if they are a member, then drop the role and login
