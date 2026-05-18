@@ -76,43 +76,7 @@ Order by `CopiesSold` descending.
 
 ---
 
-## Exercise 2 – CASE to Transform Rows into Columns (Pivot)
-
-**Task:** First write a regular aggregation query, then use **SUM with a searched CASE** to pivot the results from rows into columns.
-
-**Step 1 — regular aggregation:**
-
-Write a query that counts the number of albums released per **decade** using `GROUP BY`. Derive the decade from `ReleaseYear` using integer division:
-
-```sql
-(ReleaseYear / 10) * 10   -- e.g. 1971 → 1970
-```
-
-Return `Decade` and `NrAlbums`, ordered by `Decade` ascending.
-
-**Step 2 — pivot using CASE:**
-
-Write a single-row query (no `GROUP BY`) that returns five separate columns, one per decade, each counting how many albums were released in that decade. Use `SUM(CASE WHEN … THEN 1 ELSE 0 END)` for each column:
-
-| Column alias | Condition |
-|---|---|
-| `Albums_1950s` | `ReleaseYear >= 1950 AND ReleaseYear < 1960` |
-| `Albums_1960s` | `ReleaseYear >= 1960 AND ReleaseYear < 1970` |
-| `Albums_1970s` | `ReleaseYear >= 1970 AND ReleaseYear < 1980` |
-| `Albums_1980s` | `ReleaseYear >= 1980 AND ReleaseYear < 1990` |
-| `Albums_1990s` | `ReleaseYear >= 1990 AND ReleaseYear < 2000` |
-
-**Hint:** The regular aggregation in Step 1 helps you verify the counts before writing the pivot. The total of all pivot columns must equal the total rows in `dbo.Album`.
-
-**Expected outcome:**
-- Step 1: multiple rows, one per decade.
-- Step 2: a single row with five columns whose values match the counts from Step 1.
-
-**Answer:** [01-case.sql](../exercise-answers/01-case.sql)
-
----
-
-## Exercise 3 – CASE with a Subquery (Existence Check)
+## Exercise 2 – CASE with a Subquery (Existence Check)
 
 **Task:** Use a **simple CASE** where the tested expression is a **scalar subquery** that counts albums, to classify each music group by the size of its catalog.
 
@@ -142,7 +106,7 @@ Order by `EstablishedYear` ascending.
 
 ---
 
-## Exercise 4 – CASE in an UPDATE (Conditional Data Modification)
+## Exercise 3 – CASE in an UPDATE (Conditional Data Modification)
 
 **Task:** Use a **searched CASE with `EXISTS`** inside an `UPDATE` statement to conditionally modify data, wrapped in a transaction so the result can be verified before committing.
 

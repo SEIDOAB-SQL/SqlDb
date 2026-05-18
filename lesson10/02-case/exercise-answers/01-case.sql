@@ -33,27 +33,7 @@ FROM dbo.Album AS a
 ORDER BY a.CopiesSold DESC;
 
 -- ============================================================
--- Exercise 2: CASE to transform rows into columns (pivot)
--- ============================================================
-
--- Step 1: Regular aggregation — albums per decade
-SELECT (ReleaseYear / 10) * 10 AS Decade,
-       COUNT(*)                 AS NrAlbums
-FROM dbo.Album
-GROUP BY (ReleaseYear / 10) * 10
-ORDER BY Decade;
-
--- Step 2: Pivot using SUM(CASE …) — one column per decade
-SELECT
-    SUM(CASE WHEN ReleaseYear >= 1950 AND ReleaseYear < 1960 THEN 1 ELSE 0 END) AS Albums_1950s,
-    SUM(CASE WHEN ReleaseYear >= 1960 AND ReleaseYear < 1970 THEN 1 ELSE 0 END) AS Albums_1960s,
-    SUM(CASE WHEN ReleaseYear >= 1970 AND ReleaseYear < 1980 THEN 1 ELSE 0 END) AS Albums_1970s,
-    SUM(CASE WHEN ReleaseYear >= 1980 AND ReleaseYear < 1990 THEN 1 ELSE 0 END) AS Albums_1980s,
-    SUM(CASE WHEN ReleaseYear >= 1990 AND ReleaseYear < 2000 THEN 1 ELSE 0 END) AS Albums_1990s
-FROM dbo.Album;
-
--- ============================================================
--- Exercise 3: CASE with a subquery (existence / count check)
+-- Exercise 2: CASE with a subquery (existence / count check)
 -- ============================================================
 
 SELECT mg.Name           AS GroupName,
@@ -69,7 +49,7 @@ FROM dbo.MusicGroup AS mg
 ORDER BY mg.EstablishedYear;
 
 -- ============================================================
--- Exercise 4: CASE in an UPDATE with EXISTS
+-- Exercise 3: CASE in an UPDATE with EXISTS
 -- ============================================================
 
 DROP TABLE IF EXISTS dbo.tmp_album;
