@@ -14,15 +14,7 @@ AS
 RETURN
 (
     SELECT  film_id,
-            title,
-            description,
-            release_year,
-            rating,
-            length,
-            rental_duration,
-            rental_rate,
-            replacement_cost,
-            special_features
+            title
     FROM    dbo.film
     ORDER BY film_id
     OFFSET  (@PageNumber - 1) * @PageSize ROWS
