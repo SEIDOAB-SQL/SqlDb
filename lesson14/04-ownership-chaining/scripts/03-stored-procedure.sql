@@ -44,7 +44,3 @@ CREATE OR ALTER PROCEDURE dbo.usp_InsertFriend
 GO
 
 
-
--- List all stored procedures in the database
-SELECT SCHEMA_NAME(schema_id) +'.' + name AS ProcedureName
-FROM   sys.procedures;
