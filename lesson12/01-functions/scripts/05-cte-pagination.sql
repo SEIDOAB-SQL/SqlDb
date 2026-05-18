@@ -1,20 +1,3 @@
--- ============================================================
--- CTE-Based Pagination using the Sakila database
--- ============================================================
--- The film table has 1000 rows, making it a good candidate
--- for demonstrating pagination.
---
--- Pattern:
---   1. A CTE assigns a ROW_NUMBER() to every row in the
---      desired sort order.
---   2. The outer query filters by the row-number window that
---      corresponds to the requested page.
---
--- Page formula:
---   First row : (@PageNumber - 1) * @PageSize + 1
---   Last  row : @PageNumber * @PageSize
--- ============================================================
-
 USE sakila;
 GO
 
