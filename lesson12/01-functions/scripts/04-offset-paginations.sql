@@ -1,6 +1,7 @@
 USE sakila;
 GO
 
+-- House kepping
 DROP FUNCTION IF EXISTS dbo.fn_GetFilmPage;
 GO
 
@@ -26,3 +27,8 @@ GO
 SELECT * FROM dbo.fn_GetFilmPage(1, 10);   -- first page,  10 rows
 SELECT * FROM dbo.fn_GetFilmPage(2, 10);   -- second page, 10 rows
 SELECT * FROM dbo.fn_GetFilmPage(5, 20);   -- fifth page,  20 rows
+
+
+-- House kepping
+DROP FUNCTION IF EXISTS dbo.fn_GetFilmPage;
+GO
